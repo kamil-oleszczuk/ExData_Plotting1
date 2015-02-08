@@ -15,12 +15,12 @@ data <- subset(data, Date %in% dates)
 
 # Create the plot
   
-png("plot1.png", width=400, height=400)
+png("plot2.png", width=400, height=400)
 
-hist(data$Global_active_power,
-     main="Global Active Power",
-     xlab="Global Active Power (kilowatts)",
-     ylab="Frequency",
-     col="red")
+plot(data$Time, data$Global_active_power,
+     type="l",
+     xlab="",
+     ylab="Global Active Power (kilowatts)")
 
 dev.off()
+

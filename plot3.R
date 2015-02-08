@@ -15,12 +15,15 @@ data <- subset(data, Date %in% dates)
 
 # Create the plot
   
-png("plot1.png", width=400, height=400)
+png("plot3.png", width=400, height=400)
 
-hist(data$Global_active_power,
-     main="Global Active Power",
-     xlab="Global Active Power (kilowatts)",
-     ylab="Frequency",
-     col="red")
+plot(data$Time, data$Sub_metering_1, type="l", col="black",
+     xlab="", ylab="Energy sub metering")
+lines(data$Time, data$Sub_metering_2, col="red")
+lines(data$Time, data$Sub_metering_3, col="blue")
+legend("topright",
+       col=c("black", "red", "blue"),
+       c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
+       lty=1)
 
 dev.off()
